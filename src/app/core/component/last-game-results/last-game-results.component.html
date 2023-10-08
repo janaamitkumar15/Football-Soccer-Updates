@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 class="title-head">Football Updates</h3>
+    <h4 class="title-head">Last 10 game results</h4>
+    <div *ngIf="lastTenResults">
+        <table>
+            <tbody>
+                <tr *ngFor="let result of lastTenResults">
+                    <td><img src="{{ result.teams.home.logo }}" class="team-logo"
+                            alt="{{ result.teams.home.name }} logo"></td>
+                    <td>{{ result.teams.home.name }}</td>
+                    <td>{{ result.goals.home }} - {{ result.goals.away }}</td>
+                    <td>{{ result.teams.away.name }}</td>
+                    <td><img src="{{ result.teams.away.logo }}" class="team-logo"
+                            alt="{{ result.teams.away.name }} logo"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <button routerLink="/">Back</button>
+
+    </div>
+</div>

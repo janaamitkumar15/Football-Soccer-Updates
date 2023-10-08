@@ -1,0 +1,38 @@
+<div class="container">
+    <h3 class="title-head">Football Updates</h3>
+    <div>
+        <app-navbar [selectedCountry]="(selectedCountry?selectedCountry.name:'')" (countrySelected)="onCountrySelected($event)" ></app-navbar>
+    </div>
+    <br />
+    <div *ngIf="standings">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Name</th>
+            <th>Games</th>
+            <th>W</th>
+            <th>L</th>
+            <th>D</th>
+            <th>Goal Difference</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of standings; let i = index">
+            <td>{{ i+1 }}</td>
+            <td><img src="{{ team.team.logo }}" class="team-logo" alt="{{ team.team.name }} logo"></td>
+            <td class="team-name" (click)="showLastTenResults(team.team.id)">{{ team.team.name }}</td>
+            <td>{{ team.all.played }}</td>
+            <td>{{ team.all.win }}</td>
+            <td>{{ team.all.lose }}</td>
+            <td>{{ team.all.draw }}</td>
+            <td>{{ team.goalsDiff }}</td>
+            <td>{{ team.points }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
